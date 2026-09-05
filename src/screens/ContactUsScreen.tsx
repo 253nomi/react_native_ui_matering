@@ -50,7 +50,6 @@ const SocialSectionView = () => {
             backgroundColor="#fff"
             borderWidth={1}
             borderColor="#E4E6E8"
-            onPress={() => {}}
           />
         }
         title="WhatsApp"
@@ -66,7 +65,6 @@ const SocialSectionView = () => {
             backgroundColor="#fff"
             borderWidth={1}
             borderColor="#E4E6E8"
-            onPress={() => {}}
           />
         }
         title="WhatsApp"
@@ -82,7 +80,6 @@ const SocialSectionView = () => {
             backgroundColor="#fff"
             borderWidth={1}
             borderColor="#E4E6E8"
-            onPress={() => {}}
           />
         }
         title="WhatsApp"
@@ -98,7 +95,6 @@ const SocialSectionView = () => {
             backgroundColor="#fff"
             borderWidth={1}
             borderColor="#E4E6E8"
-            onPress={() => {}}
           />
         }
         title="WhatsApp"

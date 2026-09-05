@@ -1,16 +1,12 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, StyleSheet } from "react-native";
 import FoodLogo from "../assets/FoodLogo";
+import SunImage from "../assets/SunImage";
 
 const IntroScreen = () => {
   return (
-    <View>
-      <Image
-        source={require("../assets/Logo.png")}
-        style={{
-          marginTop: 80,
-        }}
-      />
+    <View style={styles.container}>
       <FoodLogo />
+      <SunImage style={styles.sunImg} />
     </View>
   );
 };
@@ -21,5 +17,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  sunImg: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
   },
 });

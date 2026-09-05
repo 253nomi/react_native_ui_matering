@@ -64,12 +64,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: ms(20),
-    fontWeight: "600",
     fontFamily: "Montserrat_600SemiBold",
   },
   description: {
     fontSize: ms(14),
-    fontWeight: "400",
     fontFamily: "Montserrat_400Regular",
     color: "#2C2016",
   },

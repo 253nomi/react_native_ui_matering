@@ -1,17 +1,27 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import { s, vs, ms } from "react-native-size-matters";
 import BackButton from "../components/BackButton";
 import UserAvatar from "../components/UserAvatar";
 import SendButton from "../components/SendButton";
 import CommonButton from "../components/CommonButton";
-import WhatsApp from "../assets/Whatsapp.svg";
 import SocialSectionInfo from "../components/SocialSectionInfo";
 import SizedBox from "../components/SizedBox";
+import { socialPlatforms } from "../models/SocialPlatformModel";
 
 const ContactUsScreen = () => {
   return (
     <View style={styles.container}>
       <HeaderView />
+      <SizedBox height={vs(20)} />
+      <Text
+        style={{
+          fontWeight: "600",
+          fontSize: ms(30),
+        }}
+      >
+        Contact Us
+      </Text>
+      <SizedBox height={vs(20)} />
       <SocialSectionView />
     </View>
   );
@@ -29,76 +39,43 @@ const HeaderView = () => {
 const SocialSectionView = () => {
   return (
     <View style={styles.socialSectionView}>
-      <SizedBox height={vs(10)} />
-
       <Text
         style={{
           fontWeight: "600",
-          fontSize: ms(10),
+          fontSize: ms(16),
         }}
       >
         Social Media Platforms
       </Text>
 
-      <SocialSectionInfo
-        socialIcon={
-          <CommonButton
-            child={<WhatsApp />}
-            width={46}
-            height={46}
-            borderRadius={40}
-            backgroundColor="#fff"
-            borderWidth={1}
-            borderColor="#E4E6E8"
-          />
-        }
-        title="WhatsApp"
-        actionIcon={<SendButton onPress={() => {}} />}
-      />
-      <SocialSectionInfo
-        socialIcon={
-          <CommonButton
-            child={<WhatsApp />}
-            width={46}
-            height={46}
-            borderRadius={40}
-            backgroundColor="#fff"
-            borderWidth={1}
-            borderColor="#E4E6E8"
-          />
-        }
-        title="WhatsApp"
-        actionIcon={<SendButton onPress={() => {}} />}
-      />
-      <SocialSectionInfo
-        socialIcon={
-          <CommonButton
-            child={<WhatsApp />}
-            width={46}
-            height={46}
-            borderRadius={40}
-            backgroundColor="#fff"
-            borderWidth={1}
-            borderColor="#E4E6E8"
-          />
-        }
-        title="WhatsApp"
-        actionIcon={<SendButton onPress={() => {}} />}
-      />
-      <SocialSectionInfo
-        socialIcon={
-          <CommonButton
-            child={<WhatsApp />}
-            width={46}
-            height={46}
-            borderRadius={40}
-            backgroundColor="#fff"
-            borderWidth={1}
-            borderColor="#E4E6E8"
-          />
-        }
-        title="WhatsApp"
-        actionIcon={<SendButton onPress={() => {}} />}
+      <FlatList
+        data={socialPlatforms}
+        keyExtractor={(item) => item.key}
+        renderItem={({ item, index }) => {
+          const Logo = item.logo;
+          return (
+            <SocialSectionInfo
+              socialIcon={
+                <CommonButton
+                  child={<Logo />}
+                  width={46}
+                  height={46}
+                  borderRadius={40}
+                  borderWidth={1}
+                  borderColor="#E4E6E8"
+                />
+              }
+              title={item.title}
+              actionIcon={
+                <SendButton
+                  onPress={() => {
+                    console.log(item.key);
+                  }}
+                />
+              }
+            />
+          );
+        }}
       />
     </View>
   );
@@ -123,6 +100,8 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: s(14),
     paddingHorizontal: s(16),
+    paddingTop: vs(16),
+    paddingBottom: vs(25),
   },
 });
 

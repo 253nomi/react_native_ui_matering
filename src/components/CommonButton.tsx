@@ -19,7 +19,7 @@ interface CommonButtonProps {
 
 const CommonButton = ({
   child,
-  backgroundColor = "#FF7622",
+  backgroundColor = "#F5F5FA",
   height = 48,
   width = 48,
   borderRadius = 8,

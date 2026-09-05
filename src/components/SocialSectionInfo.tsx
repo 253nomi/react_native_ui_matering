@@ -41,6 +41,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between", // For Main Axis Alignment in Row & Cross Axis Alignment in Column
     alignItems: "center", // For Cross Axis Alignment in Row & Main Axis Alignment in Column
+    borderBottomColor: "#E4E6E8",
+    borderBottomWidth: 1,
   },
 });
 

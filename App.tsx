@@ -3,9 +3,10 @@ import { StyleSheet, Text, View } from "react-native";
 import IntroScreen from "./src/screens/IntroScreen";
 import ContactUsScreen from "./src/screens/ContactUsScreen";
 import HomeScreen from "./src/screens/HomeScreen";
+import PaymentScreen from "./src/screens/PaymentScreen";
 
 export default function App() {
-  return <HomeScreen />;
+  return <PaymentScreen />;
 }
 
 const styles = StyleSheet.create({

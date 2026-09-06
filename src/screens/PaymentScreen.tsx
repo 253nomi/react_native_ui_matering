@@ -6,6 +6,8 @@ import PaymentMethodCard from "../components/PaymentMethodCard";
 import { paymentMethods } from "../models/PaymentMethod";
 import { PaymentMethodListProps } from "../models/PaymentMethod";
 import { useState } from "react";
+import AddPaymentMethodContainer from "../components/AddPaymentMethodContainer";
+import AddPaymentMethodButton from "../components/AddPaymentMethodButton";
 
 const PaymentScreen = () => {
   return (
@@ -14,6 +16,10 @@ const PaymentScreen = () => {
       <PaymentScreenHeader />
       <SizedBox height={vs(30)} />
       <PaymentMethodList paymentMethods={paymentMethods} />
+      <SizedBox height={vs(30)} />
+      <AddPaymentMethodContainer />
+      <SizedBox height={vs(30)} />
+      <AddPaymentMethodButton />
     </View>
   );
 };
@@ -36,25 +42,31 @@ const PaymentScreenHeader = () => {
 const PaymentMethodList = ({ paymentMethods }: PaymentMethodListProps) => {
   const [selectedMethod, setSelectedMethod] = useState<string>("Live");
   return (
-    <FlatList
-      horizontal
-      contentContainerStyle={{
-        gap: s(12),
-        paddingTop: s(12),
+    <View
+      style={{
+        backgroundColor: "red",
       }}
-      data={paymentMethods}
-      keyExtractor={(item) => item.label}
-      renderItem={({ item }) => (
-        <PaymentMethodCard
-          isSelected={selectedMethod == item.label}
-          paymentMethodName={item.label}
-          paymentMethodIcon={<item.icon />}
-          onPress={() => {
-            setSelectedMethod(item.label);
-          }}
-        />
-      )}
-    />
+    >
+      <FlatList
+        horizontal
+        contentContainerStyle={{
+          gap: s(12),
+          paddingTop: s(12),
+        }}
+        data={paymentMethods}
+        keyExtractor={(item) => item.label}
+        renderItem={({ item }) => (
+          <PaymentMethodCard
+            isSelected={selectedMethod == item.label}
+            paymentMethodName={item.label}
+            paymentMethodIcon={<item.icon />}
+            onPress={() => {
+              setSelectedMethod(item.label);
+            }}
+          />
+        )}
+      />
+    </View>
   );
 };
 
